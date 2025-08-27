@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cortex - Bot Discord di Moderazione</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00d9ff;
+      --secondary: #001a5c;
+      --text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Russo One', sans-serif;
+      background-color: var(--secondary);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background-color: #021e65;
+    }
+
+    header img.logo {
+      width: 60px;
+      height: auto;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      background: url("Untitled (25).png") no-repeat center/cover;
+      padding: 100px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .hero.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0;
+      color: var(--primary);
+      text-shadow: 2px 2px 5px black;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin: 10px 0 20px;
+      color: var(--text);
+    }
+
+    .hero a.button {
+      background-color: var(--primary);
+      color: var(--secondary);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .hero a.button:hover {
+      background-color: #00b8d4;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 40px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background-color: #04237d;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #021e65;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Untitled (24).png" alt="Cortex Logo" class="logo">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Funzionalità</a>
+      <a href="#">Invita</a>
+      <a href="#">Supporto</a>
+    </nav>
+  </header>
+
+  <div class="hero hidden">
+    <h1>Cortex: il tuo alleato nella moderazione Discord</h1>
+    <p>Potente. Affidabile. Personalizzabile.</p>
+    <a class="button" href="#">➕ Invita su Discord</a>
+  </div>
+
+  <section class="hidden">
+    <h2>🔧 Funzionalità</h2>
+    <div class="features">
+      <div class="feature">🔒 Moderazione automatica</div>
+      <div class="feature">🛡️ Anti-spam e anti-raid</div>
+      <div class="feature">📝 Log dettagliati</div>
+      <div class="feature">🎛️ Controlli personalizzati</div>
+      <div class="feature">📊 Statistiche server</div>
+    </div>
+  </section>
+
+  <section class="hidden" style="text-align:center;">
+    <h2>🤖 Invita Cortex ora</h2>
+    <p>Porta la sicurezza e l'automazione nel tuo server Discord</p>
+    <a class="button" href="#">🚀 Aggiungi al tuo server</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Cortex Bot. Tutti i diritti riservati.
+  </footer>
+
+  <script>
+    // Scroll reveal animation
+    const elements = document.querySelectorAll('.hidden');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.classList.remove('hidden');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

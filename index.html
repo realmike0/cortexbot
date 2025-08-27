@@ -12,6 +12,10 @@
       --text: #ffffff;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Russo One', sans-serif;
@@ -26,6 +30,9 @@
       justify-content: space-between;
       padding: 20px 40px;
       background-color: #021e65;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     header img.logo {
@@ -49,14 +56,6 @@
       background: url("Untitled (25).png") no-repeat center/cover;
       padding: 100px 20px;
       text-align: center;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease;
-    }
-
-    .hero.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .hero h1 {
@@ -91,14 +90,6 @@
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     section h2 {
@@ -134,20 +125,20 @@
   <header>
     <img src="Untitled (24).png" alt="Cortex Logo" class="logo">
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Funzionalità</a>
-      <a href="#">Invita</a>
-      <a href="#">Supporto</a>
+      <a href="#home">Home</a>
+      <a href="#funzionalita">Funzionalità</a>
+      <a href="#invita">Invita</a>
+      <a href="#supporto">Supporto</a>
     </nav>
   </header>
 
-  <div class="hero hidden">
+  <div class="hero" id="home">
     <h1>Cortex: il tuo alleato nella moderazione Discord</h1>
     <p>Potente. Affidabile. Personalizzabile.</p>
-    <a class="button" href="#">➕ Invita su Discord</a>
+    <a class="button" href="#invita">➕ Invita su Discord</a>
   </div>
 
-  <section class="hidden">
+  <section id="funzionalita">
     <h2>🔧 Funzionalità</h2>
     <div class="features">
       <div class="feature">🔒 Moderazione automatica</div>
@@ -158,33 +149,21 @@
     </div>
   </section>
 
-  <section class="hidden" style="text-align:center;">
+  <section id="invita" style="text-align:center;">
     <h2>🤖 Invita Cortex ora</h2>
     <p>Porta la sicurezza e l'automazione nel tuo server Discord</p>
-    <a class="button" href="#">🚀 Aggiungi al tuo server</a>
+    <a class="button" href="https://discord.com/oauth2/authorize?client_id=TUA_CLIENT_ID&scope=bot">🚀 Aggiungi al tuo server</a>
+  </section>
+
+  <section id="supporto" style="text-align:center;">
+    <h2>📩 Supporto</h2>
+    <p>Hai bisogno di aiuto o vuoi segnalare un bug?</p>
+    <a class="button" href="https://discord.gg/TUO_INVITE">🎧 Unisciti al server di supporto</a>
   </section>
 
   <footer>
     &copy; 2025 Cortex Bot. Tutti i diritti riservati.
   </footer>
-
-  <script>
-    // Scroll reveal animation
-    const elements = document.querySelectorAll('.hidden');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          entry.target.classList.remove('hidden');
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-
-    elements.forEach(el => observer.observe(el));
-  </script>
 
 </body>
 </html>
